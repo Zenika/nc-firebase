@@ -1,5 +1,5 @@
 author: Zenika
-summary: Un concentrateur de logs avec la suite Elastic
+summary: Mise en place d'une infrastructure basée sur Firebase
 id: firebase-codelab
 
 # Firebase Elastic
