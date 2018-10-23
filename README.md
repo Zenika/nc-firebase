@@ -4,6 +4,8 @@
 - [Step 4 - Hosting](https://github.com/Zenika/nc-firebase/steps/step4.md)
 
 
+https://docs.google.com/presentation/d/19-QA-2IqBpYUNRnpBd7PWySpU6gGIJi3XZmoSOduOGg/edit
+
 # Abstract
 
 L'offre Firebase proposée par Google est une galaxie. Et malheureusement nous n'aurons pas le temps de tout aborder. Nous allons
