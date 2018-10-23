@@ -2,7 +2,7 @@ author: Zenika
 summary: Mise en place d'une infrastructure basée sur Firebase
 id: firebase-codelab
 
-# Firebase Elastic
+# Firebase
 
 Prérequis:
 
