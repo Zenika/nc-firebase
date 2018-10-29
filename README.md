@@ -25,5 +25,5 @@ Avide d'explorations techniques, c'est un vrai touche à tout qui n’hésite pa
 Speaker à ses heures autour du Stream Data Processing (SMACK, Apache Beam, Kafka) notamment au Snowcamp ou lors de BBLs, il aime la bonne bouffe, la bonne bière, les soirées entre amis et le billard.
 Ses sujets actuels gravitent autour de GCP (PubSub, DataFlow, AppEngine, ComputeEngine) ainsi que de GoLang.
 
-#### Aurélien Loyer (???)
-// TODO
+#### Aurélien Loyer ([@AurelienLoyer](https://twiter.com/AurelienLoyer))
+Consultant et Formateur Web chez Zenika Montreal et anciennment chez Zenika Lille. J'anime regulièrement des formations, des Meetups ainsi que des conférences ( Devoxx 2017 / 2018, Devfest Lille 2017 / 2018 ) dans le domaine du Web ou je me suis spécialisé (Angular, Vue.js, Node.js ...). Fan d'IOT durant mes heures perdues, je suis toujours à l'affût des dernières nouveautés que j'expérimente dans de nouveaux projets professionnels et OSS !
