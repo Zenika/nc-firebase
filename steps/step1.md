@@ -8,7 +8,7 @@ Prérequis:
 
 - NPM / Node
 
-## Firestore
+## Cloud Function
 
 Positive
 : Voici la documentation utile pour cette étape
@@ -40,6 +40,7 @@ Afin de passer à travers de la limitation de Firebase concernant les appels ver
 - Créer un fichier `cron.js` contenant la structure de ce fichier : https://gist.github.com/Gillespie59/139646836eb7955c2d3dbf2627b0c9a5
 - Pour récupérer les données, nous allons faire du scraping de la page Web via le module NPM `jsdom`
   - Voici les sélécteurs CSS pour les différentes informations utiles `ProfileNav-item--tweets .ProfileNav-value`, `ProfileNav-item--followers .ProfileNav-value` et `ProfileNav-item--following .ProfileNav-value`
+  - Pour éxecuter le script, vous pouvez executer la commande `node cron.js EmmanuelDemey`
 - Créez une cloud function `contributions` permettant de récupérer les `query parameters` et de les retourner dans un JSON, contenant également un `timestamp` correspondant à la date du jour. Les données numériques doivent être retournées dans le bon format.
 - Lancez en local votre Cloud function via la commande `firebase serve --only functions
 - Modifiez la constante `functionUrl` afin de pointer vers l'URL de votre Cloud Function en local (il faudra la changer dans le futur afin de pointer vers celle en production)

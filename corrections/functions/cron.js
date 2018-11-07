@@ -19,11 +19,14 @@ async function call(user) {
   const following = dom.window.document
     .querySelector(".ProfileNav-item--following .ProfileNav-value")
     .getAttribute("data-count");
-  fetch(
+  console.log(
+    `${functionUrl}?user=${user}&tweets=${tweets}&followers=${followers}&following=${following}`
+  );
+  /* fetch(
     `${functionUrl}?user=${user}&tweets=${tweets}&followers=${followers}&following=${following}`
   )
     .then(res => res.json())
-    .then(body => console.log(body));
+    .then(body => console.log(body)); */
 }
 
 call(process.argv[2]);
