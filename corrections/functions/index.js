@@ -11,15 +11,12 @@ admin.initializeApp({
 });
 exports.contributions = functions.https.onRequest((request, response) => {
   const result = {
-    date: new Date(),
-    user: request.query.user,
-    tweets: parseInt(request.query.tweets),
-    followers: parseInt(request.query.followers),
-    following: parseInt(request.query.following)
+    timestamp: new Date(),
+    twitters: JSON.parse(request.body)
   };
   admin
     .firestore()
-    .collection(result.user)
+    .collection("stats")
     .add(result);
 
   response.json(result);

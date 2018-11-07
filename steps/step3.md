@@ -3,10 +3,24 @@
 Positive
 : Voici la documentation utile pour cette étape
 
-- [Blabla](blabla)
+- [Firebase Authentication](https://firebase.google.com/docs/auth/)
+- [@angular/fire](https://github.com/angular/angularfire2/blob/master/docs/auth/getting-started.md)
 
-- ajouter l'authentification via twitter ou google (afin que les participants puissent se connecter a plusieurs compte et jouer avec les autorisations)
-- sécuriser l'insertion des donnes dans firebase
-- sécuriser l'accès aux données. Il faut absolument être connecté
-- dans l'application on pourra demander les stats de plusieurs compte. Nous pourrons ajouter un règle afin d'autoriser cette fonctionnalité que pour les utilisateurs connectés via twitter. 
+## Sécurisation des données
 
+Nous allons à présent sécuriser l'accés à nos données.
+
+- Dans le fichier `firestore.rules`
+  - Dans la collection `stats`, l'insertion des donnees ne peut être réalisée que par notre Cloud function. (Impossible d'ajouter des documents depuis l'application Angular par exemple)
+  - Pour insérer des données dans la collection `handlers`, il faut être connecté
+  - Pour récupérer les données, il faut être connecté.
+
+Vous pouvez tester ces règles via le simulateur en ligne disponible depuis la console Firebase.
+
+## Intégration dans l'application Angular
+
+Nous allons à présent récupérer ces données depuis notre application Angular.
+
+- Dans le module applicatif, veuillez importer lle module `AngularFireAuthModule`
+- Depuis la console de Firebase, veuillez activer l'authentification via les providers **Google** et **Twitter**
+- Dans l'application Angular, veuillez modifier le service `UserService` afin d'appeler l'api d'`@angular/fire` pour gérer l'authentification de vos utilisateurs. Vous devez modifier les methodes `signInWithGoogle`, `signInWithTwitter`, `logout` et `isLoggedIn`.

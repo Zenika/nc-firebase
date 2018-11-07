@@ -1,10 +1,13 @@
 service cloud.firestore {
+	function isSignedIn(){
+  	return request.auth != null;
+  }
   match /databases/{database}/documents {
-    function isSignedIn(){
-       return request.auth != null;
+    match /stats/{document=**} {
+    	allow read: if isSignedIn();
+      allow write: if false;
     }
-
-    match /{document=**} {
+    match /handlers/{document=**} {
       allow read, write: if isSignedIn();
     }
   }
