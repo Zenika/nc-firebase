@@ -1,3 +1,4 @@
 firebase-codelab
 .tmp
 .firebase
+node_modules
