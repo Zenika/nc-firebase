@@ -22,28 +22,34 @@
     </div>
 
     <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="field is-grouped">
-          <p class="control">
-            <a class="button bd-tw-button">
-              <span class="icon">
-                <i class="fa fa-twitter"></i>
-              </span>
-              <span>
-                login twitter
-              </span>
-            </a>
-          </p>
-          <p class="control">
-            <a class="button is-dark">
-              <span class="icon">
-                <i class="fa fa-github"></i>
-              </span>
-              <span>login github</span>
-            </a>
-          </p>
+      <ng-container *ngIf="user">
+        <div class="navbar-item">
+          <h1>Hello {{ user.displayName }}!</h1>
         </div>
-      </div>
+        <div class="navbar-item">
+          <a class="button is-danger" (click)="logout()">
+            <span class="icon">
+              <i class="fa fa-google"></i>
+            </span>
+            <span>Logout google</span>
+          </a>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!user">
+        <div class="navbar-item">
+          <div class="field is-grouped" *ngIf="!user">
+            <p class="control">
+              <a class="button is-danger" (click)="login()">
+                <span class="icon">
+                  <i class="fa fa-google"></i>
+                </span>
+                <span>Login google</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </ng-container>
+
     </div>
   </div>
 </nav>

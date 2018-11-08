@@ -6,6 +6,7 @@
     "@angular/common": "7.0.2",
     "@angular/compiler": "7.0.2",
     "@angular/core": "7.0.2",
+    "@angular/fire": "^5.1.0",
     "@angular/forms": "7.0.2",
     "@angular/platform-browser": "7.0.2",
     "@angular/platform-browser-dynamic": "7.0.2",
@@ -15,6 +16,7 @@
     "@types/node": "8.9.5",
     "chart.js": "^2.7.3",
     "core-js": "2.5.7",
+    "firebase": "^5.5.7",
     "rxjs": "6.3.3",
     "zone.js": "0.8.26"
   },
