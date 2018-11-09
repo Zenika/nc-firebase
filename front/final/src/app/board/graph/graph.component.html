@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="buttons">
+    <a *ngFor="let type of dataTypes" class="button is-danger" [class.is-outlined]="selectedType != type" (click)="changeDataToDisplay(type)">{{type}}</a>
+  </div>
+  <canvas id="canvas"></canvas>
+</div>
+

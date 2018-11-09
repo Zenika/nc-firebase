@@ -2,3 +2,4 @@ firebase-codelab
 .tmp
 .firebase
 node_modules
+.DS_Store

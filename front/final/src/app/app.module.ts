@@ -1,0 +1,39 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+
+import routes from './app.router';
+
+import { AboutModule } from './about/about.module';
+import { BoardModule } from './board/board.module';
+
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { DataService } from './data.service';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
+import { environment } from '../environments/environment';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AboutModule,
+    BoardModule,
+    RouterModule,
+    RouterModule.forRoot(routes),
+    AngularFireModule.initializeApp(environment.firebase, 'nc-firebase'),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule // imports firebase/storage only needed for storage features
+  ],
+  declarations: [ AppComponent, HeaderComponent ],
+  bootstrap:    [ AppComponent ],
+  providers: [DataService]
+})
+export class AppModule { }
