@@ -25,7 +25,7 @@ export class GraphComponent implements OnInit {
     'followers',
     'likes'
   ];
-  
+
   selectedType = 'tweets';
 
   constructor() { }
@@ -47,8 +47,6 @@ export class GraphComponent implements OnInit {
 
   generateData() {
 
-    console.log(this.data)
-
     const chartData = {
       labels: [],
       datasets: []
@@ -57,7 +55,8 @@ export class GraphComponent implements OnInit {
     const persons = []
 
     this.data.forEach(item => {
-      chartData.labels.push(item.timestamp);
+      console.log(item);
+      chartData.labels.push(new Date(item.timestamp.seconds * 1000).toLocaleDateString());
       Object.keys(item.twitters).forEach(username => {
         let userNotFound = true
         chartData.datasets.forEach(userData => {
@@ -68,7 +67,7 @@ export class GraphComponent implements OnInit {
         });
         if( userNotFound ) {
           chartData.datasets.push({
-              borderColor: '#ff3860',
+              borderColor: '#ffdd57',
               fill: false,
               label: username,
               data: [item.twitters[username][this.selectedType]]
@@ -77,7 +76,6 @@ export class GraphComponent implements OnInit {
       })
     })
 
-    console.log(chartData)
     return chartData;
   }
 

@@ -18,6 +18,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { environment } from '../environments/environment';
+import { FooterComponent } from './footer/footer.component';
+import { AuthGuard } from './core/auth.guard';
+import { AuthService } from './core/auth.service';
 
 @NgModule({
   imports: [
@@ -32,8 +35,12 @@ import { environment } from '../environments/environment';
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule // imports firebase/storage only needed for storage features
   ],
-  declarations: [ AppComponent, HeaderComponent ],
+  declarations: [ AppComponent, HeaderComponent, FooterComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [DataService]
+  providers: [
+    DataService, 
+    AuthGuard, 
+    AuthService
+    ]
 })
 export class AppModule { }

@@ -1,5 +1,7 @@
 <section class="container">
 
+  <br><br>
+
   <div class="container">
     <h1 class="title">
       Twitter Handlers
@@ -25,7 +27,7 @@
     <div class="field is-grouped is-grouped-multiline">
       <div class="control" *ngFor="let twitter of twitters">
         <div class="tags has-addons">
-          <a class="tag is-link">{{twitter}}</a>
+          <a class="tag is-link">{{twitter.handler}}</a>
           <a class="tag is-delete"></a>
         </div>
       </div>
@@ -36,4 +38,6 @@
 
 <z-graph [data]="data"></z-graph>
 
-<z-stats *ngFor="let twitter of twitters" [account]="twitter"></z-stats>
+<ng-container *ngFor="let twitter of twitters">
+  <z-stats *ngIf="data[0] && data[0].twitters[twitter.handler]" [account]="data[0].twitters[twitter.handler]" ></z-stats>
+</ng-container>

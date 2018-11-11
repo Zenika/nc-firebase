@@ -1,6 +1,8 @@
  const mockedData = [
     {
-      timestamp: 1541522418,
+      timestamp: {
+        seconds: 1541522418,
+      },
       twitters: {
         '@AurelienLoyer': {
           name: 'AurelienLoyer',
@@ -19,7 +21,9 @@
       } 
     },
     {
-      timestamp: 1541520418,
+      timestamp: {
+        seconds: 1541520418
+      },
       twitters: {
         '@AurelienLoyer': {
           name: 'AurelienLoyer',
@@ -38,7 +42,9 @@
       }
     },
     {
-      timestamp: 1541512418,
+      timestamp: {
+        seconds: 1541512418,
+      },
       twitters: {
         '@AurelienLoyer': {
           name: 'AurelienLoyer',
