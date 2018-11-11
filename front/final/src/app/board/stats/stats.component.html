@@ -1,29 +1,29 @@
 
-<section class="container hero is-danger">
-    <h3 class="subtitle ">{{account}}</h3>
+<section class="container hero is-primary">
+    <h3 class="subtitle ">@{{account.name}}</h3>
     <nav class="level is-mobile">
       <div class="level-item has-text-centered">
         <div>
           <p class="heading">Tweets</p>
-          <p class="title">3,456</p>
+          <p class="title">{{account.tweets}}</p>
         </div>
       </div>
       <div class="level-item has-text-centered">
         <div>
           <p class="heading">Following</p>
-          <p class="title">123</p>
+          <p class="title">{{account.following}}</p>
         </div>
       </div>
       <div class="level-item has-text-centered">
         <div>
           <p class="heading">Followers</p>
-          <p class="title">456K</p>
+          <p class="title">{{account.followers}}</p>
         </div>
       </div>
       <div class="level-item has-text-centered">
         <div>
           <p class="heading">Likes</p>
-          <p class="title">789</p>
+          <p class="title">{{account.likes}}</p>
         </div>
       </div>
     </nav>

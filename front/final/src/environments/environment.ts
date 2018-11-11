@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyBmNkRGMwyD_Z6sPYY3FtKI4H9w7kUzYi4",
-    authDomain: "cohesive-apogee-95023.firebaseapp.com",
-    databaseURL: "https://cohesive-apogee-95023.firebaseio.com",
-    projectId: "cohesive-apogee-95023",
-    storageBucket: "cohesive-apogee-95023.appspot.com",
-    messagingSenderId: "546552200902"
+    apiKey: "AIzaSyAyswipt7emld9bASpnernA7F6mKRm7xpY",
+    authDomain: "codelab-firebase-b1a97.firebaseapp.com",
+    databaseURL: "https://codelab-firebase-b1a97.firebaseio.com",
+    projectId: "codelab-firebase-b1a97",
+    storageBucket: "codelab-firebase-b1a97.appspot.com",
+    messagingSenderId: "918664590933"
   }
 };
 

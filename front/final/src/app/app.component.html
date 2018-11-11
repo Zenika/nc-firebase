@@ -1,25 +1,24 @@
 <z-header></z-header>
 
-<section class="hero is-danger is-small">
+<section class="hero is-danger is-small" style="">
   <div class="hero-body">
     <div class="container has-text-centered">
       <p class="title">
-        Zenika Twitter Trends
+        Firebase 🔥 Twitter Trends
       </p>
       <p class="subtitle">
-        Un souper comparateur de statistiques Twitter 🐦 avec Firebase / Angular
+        A Twitter Statistics Comparator 🐦made with Firebase / Angular
       </p>
     </div>
   </div>
 </section>
 
-<div class="box cta">
+<div class="box cta" *ngIf="!isAuthenticated">
   <p class="has-text-centered">
-    <span class="tag is-primary">New</span> Je sais pas encore quoi mettre dans ce bloc 🦄
+    <span class="tag is-dark">⚠️ Warning</span> You need to be login to access to the dashboard 🔥
   </p>
 </div>
 
 <router-outlet></router-outlet>
 
-<footer>
-</footer>
+<z-footer></z-footer>
