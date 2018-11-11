@@ -16,4 +16,8 @@ export class AuthService {
   get authenticated() {
     return this.authState;
   }
+
+  get mockedAuthenticated() {
+    return this.authState;
+  }
 }
