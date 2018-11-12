@@ -13,14 +13,19 @@ export class DataService {
   }
 
   getAccountsToSpy(): Observable<any[]> {
-    return this.db.collection("handlers").valueChanges();
+    return this.db.collection("handlers").snapshotChanges();
   }
 
-  addTwitter(handler: string): Observable<any[]> {
-    return null;
+  addTwitter(handler: string): void {
+    this.db.collection("handlers").add({
+      handler
+    });
   }
 
-  removeTwitter(handler: string): Observable<any[]> {
-    return null;
+  removeTwitter(id: string): void {
+    this.db
+      .collection("handlers")
+      .doc(id)
+      .delete();
   }
 }
