@@ -16,17 +16,6 @@ export class BoardComponent implements OnInit {
   ngOnInit() {
     this.dataService
       .getAccountsToSpy()
-      .pipe(
-        map(handlers => {
-          console.log(handlers);
-          return handlers.map(handler => {
-            return {
-              ...handler.payload.doc.data(),
-              id: handler.payload.doc.id
-            };
-          });
-        })
-      )
       .subscribe(data => (this.twitters = data));
 
     this.dataService.getData().subscribe(data => (this.data = data));

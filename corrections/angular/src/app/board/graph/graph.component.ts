@@ -46,7 +46,6 @@ export class GraphComponent implements OnInit {
     const persons = [];
 
     this.data.forEach(item => {
-      console.log(item);
       chartData.labels.push(
         new Date(item.timestamp.seconds * 1000).toLocaleDateString()
       );
