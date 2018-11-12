@@ -13,12 +13,15 @@ Positive
 - Dans la cloud function,
   - importez le module `firebase-admin`
   - initialisez l'accès à Firestore via la méthode `initializeApp`.
-  - sauvegardez la donnée retournée précédemment dans une collcation `stats`
+  - sauvegardez la donnée retournée précédemment dans une collection `stats`
 
 ## Intégration dans l'application Angular
 
 Nous allons à présent récupérer ces données depuis notre application Angular.
 
-- Installez les modules `@angular/fire`
+- Installez les modules `@angular/fire` et `firebase`
 - Dans le module applicatif, veuillez importer les modules Angular nécessaires : `AngularFireModule` et `AngularFirestoreModule`
-- Modifiez le service `data.service.js` afin de récupérer les données stockssées dans Firestore.
+- Afin d'initialiser le module `AngularFireModule`, il est nécessaire de définir la paramètrage défini dans la console **Firebase**
+- Modifiez le service `data.service.js` afin de récupérer les données stockées dans Firestore.
+  - Les méthodes `getData` et `getAccountsToSpy` doivent retournées des Observables émettant les données stockées dans Firestore.
+  - Les méthodes `addTwitter` et `removeTwitter` permettront d'ajouter et de supprimer des comptes Twitter.

@@ -1,0 +1,21 @@
+.love {
+  color: #ff3860;
+}
+
+nav {
+  height: 20px;
+  min-height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: grey;
+  font-size: 12px;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: #ff3860;
+}
