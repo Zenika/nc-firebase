@@ -22,7 +22,8 @@
     </div>
 
     <div class="navbar-end">
-      <ng-container *ngIf="user">
+      {{isAuthenticated}}
+      <ng-container *ngIf="isAuthenticated">
         <div class="navbar-item">
           <h1>Hello {{ user.displayName }}!</h1>
         </div>
@@ -35,9 +36,9 @@
           </a>
         </div>
       </ng-container>
-      <ng-container *ngIf="!user">
+      <ng-container *ngIf="!isAuthenticated">
         <div class="navbar-item">
-          <div class="field is-grouped" *ngIf="!user">
+          <div class="field is-grouped">
             <p class="control">
               <a class="button is-link" (click)="login()">
                 <span class="icon">

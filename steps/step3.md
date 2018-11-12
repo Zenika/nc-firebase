@@ -21,6 +21,6 @@ Vous pouvez tester ces règles via le simulateur en ligne disponible depuis la c
 
 Nous allons à présent récupérer ces données depuis notre application Angular.
 
-- Dans le module applicatif, veuillez importer lle module `AngularFireAuthModule`
+- Dans le module applicatif, veuillez importer le module `AngularFireAuthModule`
 - Depuis la console de Firebase, veuillez activer l'authentification via les providers **Google** et **Twitter**
 - Dans l'application Angular, veuillez modifier le service `UserService` afin d'appeler l'api d'`@angular/fire` pour gérer l'authentification de vos utilisateurs. Vous devez modifier les methodes `signInWithGoogle`, `signInWithTwitter`, `logout` et `isLoggedIn`.

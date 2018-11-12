@@ -1,7 +1,6 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { auth } from 'firebase/app';
+import { AuthService } from '../core/auth.service';
 
 @Component({
   selector: 'z-header',
@@ -10,33 +9,23 @@ import { auth } from 'firebase/app';
 })
 export class HeaderComponent implements OnInit {
 
+  @Input() isAuthenticated: any;
   user: any;
 
-  constructor(public afAuth: AngularFireAuth, private router: Router, private zone:NgZone) { }
+  constructor(public authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    this.afAuth.user.subscribe(user => {
+    this.authService.user.subscribe(user => {
       this.user = user;
     })
   }
 
   login() {
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()).then(()=>{
-      console.log('login success');
-      this.redirect('/')
-    });
-  }
-  logout() {
-    this.afAuth.auth.signOut().then(()=>{
-      console.log('logout success');
-      this.redirect('/about')
-    });
+    this.authService.login();
   }
 
-  redirect(url) {
-    this.zone.run(() => { 
-      this.router.navigate([url]);
-    });
+  logout() {
+    this.authService.logout();
   }
 
 }
