@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
-import { delay, mergeMap, merge } from "rxjs/operators";
-
+import { Observable } from "rxjs";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { combineLatest, map } from "rxjs/operators";
+
 @Injectable()
 export class DataService {
-  constructor(private db: AngularFirestore) {}
+
+  constructor(private db: AngularFirestore) { }
 
   getData(): Observable<any> {
     return this.getAccountsToSpy().pipe(
@@ -32,9 +32,11 @@ export class DataService {
       })
     );
   }
+
   getStats(): Observable<any[]> {
     return this.db.collection("stats").valueChanges();
   }
+
   getAccountsToSpy(): Observable<any[]> {
     return this.db
       .collection("handlers")

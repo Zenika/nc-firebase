@@ -19,7 +19,8 @@ export class GraphComponent implements OnInit {
 
   graph: any;
   dataTypes = ["tweets", "following", "followers", "likes"];
-
+  colors = ["#3273dc", "#ff3860", "#00d1b2"];
+  colorsIndex = 0;
   selectedType = "tweets";
 
   constructor() {}
@@ -59,7 +60,7 @@ export class GraphComponent implements OnInit {
         });
         if (userNotFound) {
           chartData.datasets.push({
-            borderColor: "#ffdd57",
+            borderColor: this.getBorderColor(),
             fill: false,
             label: username,
             data: [item.twitters[username][this.selectedType]]
@@ -76,5 +77,11 @@ export class GraphComponent implements OnInit {
     this.selectedType = type;
     this.graph.data = this.generateData();
     this.graph.update();
+  }
+
+  getBorderColor() {
+    this.colorsIndex = this.colorsIndex + 1 ;
+    if(this.colorsIndex >= this.colors.length) this.colorsIndex = -1;
+    return this.colors[this.colorsIndex - 1];
   }
 }

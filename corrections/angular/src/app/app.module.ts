@@ -3,7 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
 
-import routes from "./app.router";
+import { routes } from "./app.router";
 
 import { AboutModule } from "./about/about.module";
 import { BoardModule } from "./board/board.module";
@@ -15,7 +15,6 @@ import { DataService } from "./data.service";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
-import { AngularFireStorageModule } from "@angular/fire/storage";
 
 import { environment } from "../environments/environment";
 import { FooterComponent } from "./footer/footer.component";

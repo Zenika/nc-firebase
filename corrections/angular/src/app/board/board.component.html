@@ -40,7 +40,7 @@
 </section>
 
 <z-graph [data]="data"></z-graph>
-<!-- TODO -->
+
 <ng-container *ngFor="let twitter of twitters">
   <z-stats
     *ngIf="data[0] && data[0].twitters[twitter.handler]"
