@@ -1,4 +1,4 @@
-export class Twitter {
+export interface Twitter {
   followers: number;
   following: number;
   likes: number;
