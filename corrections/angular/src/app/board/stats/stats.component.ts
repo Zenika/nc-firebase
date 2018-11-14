@@ -9,7 +9,7 @@ export class StatsComponent implements OnInit {
   @Input()
   account: any;
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }

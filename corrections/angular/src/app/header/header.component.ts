@@ -1,6 +1,5 @@
 import { Component, OnInit, NgZone } from "@angular/core";
 import { Router } from "@angular/router";
-import { auth } from "firebase/app";
 import { AuthService } from "../core/auth.service";
 
 @Component({
@@ -9,13 +8,14 @@ import { AuthService } from "../core/auth.service";
   styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
+
   user: any;
 
   constructor(
     private authService: AuthService,
     private router: Router,
     private zone: NgZone
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.authService.user$.subscribe(user => {
