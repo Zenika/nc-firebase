@@ -5,19 +5,18 @@ import { combineLatest, map } from "rxjs/operators";
 
 @Injectable()
 export class DataService {
-
-  constructor(private db: AngularFirestore) { }
+  constructor(private db: AngularFirestore) {}
 
   getData(): Observable<any> {
     return this.getAccountsToSpy().pipe(
       combineLatest(this.getStats()),
       map(([twitters, data]) => {
-        const handlers = twitters.map(t => t.handler);
+        const accounts = twitters.map(t => t.handler);
         return data.map((d: any) => {
           return {
             ...d,
             twitters: Object.keys(d.twitters).reduce((acc: any, t: any) => {
-              if (handlers.indexOf(t) < 0) {
+              if (accounts.indexOf(t) < 0) {
                 return {
                   ...acc
                 };
@@ -39,11 +38,11 @@ export class DataService {
 
   getAccountsToSpy(): Observable<any[]> {
     return this.db
-      .collection("handlers")
+      .collection("accounts")
       .snapshotChanges()
       .pipe(
-        map(handlers => {
-          return handlers.map(handler => {
+        map(accounts => {
+          return accounts.map(handler => {
             return {
               ...handler.payload.doc.data(),
               id: handler.payload.doc.id
@@ -54,14 +53,14 @@ export class DataService {
   }
 
   addTwitter(handler: string): void {
-    this.db.collection("handlers").add({
+    this.db.collection("accounts").add({
       handler
     });
   }
 
   removeTwitter(id: string): void {
     this.db
-      .collection("handlers")
+      .collection("accounts")
       .doc(id)
       .delete();
   }
