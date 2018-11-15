@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./about.component.css"]
 })
 export class AboutComponent implements OnInit {
-  contributors: any[] = [
+  contributors = [
     {
       fullname: "Aurelien Loyer",
       twitter: "@AurelienLoyer",
@@ -30,7 +30,7 @@ export class AboutComponent implements OnInit {
     }
   ];
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }

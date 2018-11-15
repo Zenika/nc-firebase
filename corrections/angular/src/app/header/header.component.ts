@@ -1,5 +1,6 @@
 import { Component, OnInit, NgZone } from "@angular/core";
 import { Router } from "@angular/router";
+import * as firebase from 'firebase';
 import { AuthService } from "../core/auth.service";
 
 @Component({
@@ -9,7 +10,7 @@ import { AuthService } from "../core/auth.service";
 })
 export class HeaderComponent implements OnInit {
 
-  user: any;
+  user: firebase.User;
 
   constructor(
     private authService: AuthService,
@@ -25,13 +26,11 @@ export class HeaderComponent implements OnInit {
 
   login() {
     this.authService.signInWithGoogle().then(() => {
-      console.log("login success");
       this.redirect("/");
     });
   }
   logout() {
     this.authService.logout().then(() => {
-      console.log("logout success");
       this.redirect("/about");
     });
   }

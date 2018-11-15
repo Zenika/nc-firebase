@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { DataService } from "../data.service";
-import { map } from "rxjs/operators";
+import { Account } from "../models/account.model";
+import { Stat } from "../models/stat.model";
 
 @Component({
   selector: "app-board",
@@ -8,17 +9,19 @@ import { map } from "rxjs/operators";
   styleUrls: ["./board.component.css"]
 })
 export class BoardComponent implements OnInit {
-  twitters: any[] = [];
-  data: any[] = [];
+  twitters: Account[] = [];
+  data: Stat[] = [];
   twitterHandle = "";
   constructor(public dataService: DataService) {}
 
   ngOnInit() {
     this.dataService
       .getAccountsToSpy()
-      .subscribe(data => (this.twitters = data));
+      .subscribe(data => {
+        this.twitters = data
+      });
 
-    this.dataService.getData().subscribe(data => (this.data = data));
+    this.dataService.getData().subscribe(data => this.data = data);
   }
 
   deleteTwitter(twitterUser) {

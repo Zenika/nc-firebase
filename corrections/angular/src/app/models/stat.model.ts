@@ -1,7 +1,9 @@
 import { Twitter } from './twitter.model'
+import { Timestamp } from './timestamp.model'
 
 export interface Stat {
-  timestamp: any;
-  twitters: any;
-  [key: string]: Twitter;
+  timestamp: Timestamp;
+  twitters: {
+    [twitter: string]: Twitter;
+  }
 }
