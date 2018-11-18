@@ -17,13 +17,13 @@ export class GraphComponent implements OnInit {
   }
   _data = [];
 
-  graph: any;
+  graph: Chart;
   dataTypes = ["tweets", "following", "followers", "likes"];
   colors = ["#3273dc", "#ff3860", "#00d1b2"];
   colorsIndex = 0;
   selectedType = "tweets";
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     const graphElement = <HTMLCanvasElement>document.getElementById("canvas");
@@ -80,8 +80,8 @@ export class GraphComponent implements OnInit {
   }
 
   getBorderColor() {
-    this.colorsIndex = this.colorsIndex + 1 ;
-    if(this.colorsIndex >= this.colors.length) this.colorsIndex = -1;
+    this.colorsIndex = this.colorsIndex + 1;
+    if (this.colorsIndex >= this.colors.length) this.colorsIndex = -1;
     return this.colors[this.colorsIndex - 1];
   }
 }

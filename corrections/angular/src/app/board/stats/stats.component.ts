@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
+import { Twitter } from "src/app/models/twitter.model";
 
 @Component({
   selector: "z-stats",
@@ -6,10 +7,11 @@ import { Component, OnInit, Input } from "@angular/core";
   styleUrls: ["./stats.component.css"]
 })
 export class StatsComponent implements OnInit {
+
   @Input()
-  account: any;
+  account: Twitter;
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }
