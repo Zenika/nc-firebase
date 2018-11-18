@@ -14,6 +14,9 @@ Positive
   - importez le module `firebase-admin`
   - initialisez l'accès à Firestore via la méthode `initializeApp`.
   - sauvegardez la donnée retournée précédemment dans une collection `stats`
+- Nous allons également avoir une collection `accounts` dans lequel nous persisterons les comptes que Twitter que nous souhaitons suivre.
+  - Créez cette collection, et ajouter les comptes que vous voulez suivre. Le document aura une propriété `handle` avec comme valeur le nom du compte Twitter.
+  - Modifiez la dernière ligne du fichier `cron.js` en allant récupérer tout d'abord la liste des comptes depuis Firebase avant d'appeler notre Cloud Function.
 
 ## Intégration dans l'application Angular
 

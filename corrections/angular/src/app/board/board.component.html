@@ -17,8 +17,8 @@
           class="input"
           type="text"
           placeholder="Twitter"
-          [(ngModel)]="twitterHandler"
-          (keyup)="addTwitterHandler($event)"
+          [(ngModel)]="twitterHandle"
+          (keyup)="addTwitterHandle($event)"
         />
         <span class="icon is-small is-left">
           <i class="fa fa-twitter"></i>
@@ -29,7 +29,7 @@
     <div class="field is-grouped is-grouped-multiline">
       <div class="control" *ngFor="let twitter of twitters">
         <div class="tags has-addons">
-          <a class="tag is-link">{{ twitter.handler }}</a>
+          <a class="tag is-link">{{ twitter.handle }}</a>
           <a class="tag is-delete" (click)="deleteTwitter(twitter)"></a>
         </div>
       </div>
@@ -43,7 +43,7 @@
 
 <ng-container *ngFor="let twitter of twitters">
   <z-stats
-    *ngIf="data[0] && data[0].twitters[twitter.handler]"
-    [account]="data[0].twitters[twitter.handler]"
+    *ngIf="data[0] && data[0].twitters[twitter.handle]"
+    [account]="data[0].twitters[twitter.handle]"
   ></z-stats>
 </ng-container>

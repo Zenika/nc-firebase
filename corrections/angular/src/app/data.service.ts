@@ -11,7 +11,7 @@ export class DataService {
     return this.getAccountsToSpy().pipe(
       combineLatest(this.getStats()),
       map(([twitters, data]) => {
-        const accounts = twitters.map(t => t.handler);
+        const accounts = twitters.map(t => t.handle);
         return data.map((d: any) => {
           return {
             ...d,
@@ -42,19 +42,19 @@ export class DataService {
       .snapshotChanges()
       .pipe(
         map(accounts => {
-          return accounts.map(handler => {
+          return accounts.map(account => {
             return {
-              ...handler.payload.doc.data(),
-              id: handler.payload.doc.id
+              ...account.payload.doc.data(),
+              id: account.payload.doc.id
             };
           });
         })
       );
   }
 
-  addTwitter(handler: string): void {
+  addTwitter(handle: string): void {
     this.db.collection("accounts").add({
-      handler
+      handle
     });
   }
 

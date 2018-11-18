@@ -10,7 +10,7 @@ import { map } from "rxjs/operators";
 export class BoardComponent implements OnInit {
   twitters: any[] = [];
   data: any[] = [];
-  twitterHandler = "";
+  twitterHandle = "";
   constructor(public dataService: DataService) {}
 
   ngOnInit() {
@@ -25,10 +25,10 @@ export class BoardComponent implements OnInit {
     this.dataService.removeTwitter(twitterUser.id);
   }
 
-  addTwitterHandler(event) {
+  addTwitterHandle(event) {
     if (event.keyCode === 13) {
-      this.dataService.addTwitter(this.twitterHandler);
-      this.twitterHandler = "";
+      this.dataService.addTwitter(this.twitterHandle);
+      this.twitterHandle = "";
       return;
     }
   }
