@@ -11,8 +11,8 @@ import { Stat } from "../models/stat.model";
 export class BoardComponent implements OnInit {
   twitters: Account[] = [];
   data: Stat[] = [];
-  twitterHandle = "";
-  constructor(public dataService: DataService) {}
+  twitterAccount = "";
+  constructor(public dataService: DataService) { }
 
   ngOnInit() {
     this.dataService
@@ -28,10 +28,10 @@ export class BoardComponent implements OnInit {
     this.dataService.removeTwitter(twitterUser.id);
   }
 
-  addTwitterHandle(event) {
+  addTwitterAccount(event) {
     if (event.keyCode === 13) {
-      this.dataService.addTwitter(this.twitterHandle);
-      this.twitterHandle = "";
+      this.dataService.addTwitter(this.twitterAccount);
+      this.twitterAccount = "";
       return;
     }
   }
