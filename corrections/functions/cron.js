@@ -24,6 +24,12 @@ async function call(users) {
     const page = await fetch(`${url}${user}`);
     const body = await page.text();
     const dom = new JSDOM(body);
+
+    if (!dom.window.document.querySelector(".ProfileNav-item--tweets")) {
+      console.log(`Account ${user} does not exist`);
+      continue;
+    }
+
     const tweets = parseInt(
       dom.window.document
         .querySelector(".ProfileNav-item--tweets .ProfileNav-value")
@@ -56,10 +62,9 @@ async function call(users) {
       }
     };
   }
-  console.log(stats);
+
   fetch(functionUrl, { method: "POST", body: JSON.stringify(stats) })
-    .then(res => res.json())
-    .then(body => console.log(body));
+    .then(res => res.json());
 }
 
 admin
