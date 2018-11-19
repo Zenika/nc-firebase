@@ -1,0 +1,201 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Firebase</title>
+  <script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="../../elements/codelab.html">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <style is="custom-style">
+    body {
+      font-family: "Roboto",sans-serif;
+      background: var(--google-codelab-background, #F8F9FA);
+    }
+  </style>
+  
+</head>
+<body unresolved class="fullbleed">
+
+  <google-codelab title="Firebase"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="Cloud Function" duration="0">
+        <aside class="special"><p>Voici la documentation utile pour cette étape</p>
+</aside>
+<p><a href="https://firebase.google.com/docs/functions/" target="_blank">Cloud Function </a></p>
+<p><a href="https://console.firebase.google.com" target="_blank">Console Firebase</a></p>
+<p><a href="https://www.npmjs.com/package/jsdom" target="_blank">JSDOM</a></p>
+<h2>Création du projet</h2>
+<p>Nous allons débuter ce codelab par initier le projet firebase. Pour rappel, notre projet aura besoin des fonctionnalités <strong>Cloud Functions</strong>, <strong>Firestore</strong>, <strong>Authentification</strong> et de <strong>Hosting</strong></p>
+<h2>Cloud Function</h2>
+<ul>
+<li>Si cela n&#39;est pas dèjà fait, installez via NPM le module <strong>firebase-tools</strong></li>
+<li>Vérifiez que l&#39;installation s&#39;est bien passée, en executant la commande <code>firebase --help</code></li>
+<li>Depuis la console <strong>Firebase</strong>, veuillez créer un nouveau projet.</li>
+<li>Depuis la ligne de commande,<br><br><ul>
+<li>Connectez-vous à Firebase via la commande <code>firebase login</code></li>
+<li>Initialisez votre projet via la commande <code>firebase init</code></li>
+<li>Sélectionnez les fonctionnalités nécessaires à notre projet</li>
+<li>Déployez votre projet sur Firebase via la commande <code>firebase deploy</code></li>
+</ul>
+</li>
+</ul>
+<p>Votre environnement est enfin prêt. Nous allons pouvoir créer notre première Cloud functions.</p>
+<h2>Création d&#39;une Cloud Function</h2>
+<ul>
+<li>Ajoutez le support de Node 8 pour votre Cloud function.</li>
+</ul>
+<p>Afin de passer à travers de la limitation de Firebase concernant les appels vers l&#39;exterieur, pour ce codelab, nous allons écrire un script externe que nous pourrions par exemple appeler de manière régulière via un CRON.</p>
+<ul>
+<li>Créer un fichier <code>functions/cron.js</code> contenant la structure de ce fichier : https://gist.github.com/Gillespie59/139646836eb7955c2d3dbf2627b0c9a5</li>
+<li>Pour récupérer les données, nous allons faire du scraping de la page Web via le module NPM <code>jsdom</code><ul>
+<li>Installez la dépendance <code>jsdom</code> et <code>node-fetch</code></li>
+<li>Voici les sélécteurs CSS pour les différentes informations utiles <code>ProfileNav-item--tweets .ProfileNav-value</code>, <code>ProfileNav-item--followers .ProfileNav-value.ProfileNav-item--favorites .ProfileNav-value</code> et <code>ProfileNav-item--following .ProfileNav-value</code></li>
+<li>Pour éxecuter le script, vous pouvez executer la commande <code>node cron.js</code></li>
+</ul>
+</li>
+<li>Créez une cloud function <code>contributions</code> permettant de récupérer les <code>body</code> de la requête. La cloud function doit retourner un JSON contenant :<br><br><ul>
+<li>une propriété <code>timestamp</code> correspondant à la date du jour.</li>
+<li>une propriété <code>twitters</code> avec le contenu du body. Les données numériques doivent être retournées dans le bon format.</li>
+</ul>
+</li>
+<li>Lancez en local votre Cloud function via la commande `firebase serve –only functions</li>
+<li>Modifiez la constante <code>functionUrl</code> afin de pointer vers l&#39;URL de votre Cloud Function en local (il faudra la changer dans le futur afin de pointer vers celle en production)</li>
+<li>Déployez en local votre Cloud function via la commande `firebase deploy –only functions</li>
+<li>Regardez les statistiques de l&#39;utilisation de votre cloud function depuis la console Firebase.</li>
+</ul>
+<p>Au lieu de retourner ce JSON, nous persisterons ces donneées dans Firestore dans l&#39;exercice suivant.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Firestore" duration="0">
+        <aside class="special"><p>Voici la documentation utile pour cette étape</p>
+</aside>
+<p><a href="https://firebase.google.com/docs/firestore/quickstart" target="_blank">Firestore</a></p>
+<p><a href="https://github.com/angular/angularfire2/blob/master/docs/firestore/collections.md" target="_blank">Angular Fire</a></p>
+<h2>Intégration dans la Cloud Function</h2>
+<ul>
+<li>Dans la cloud function développée précédemment, nous souhaitons à présent persister les données dans <code>Firestore</code></li>
+<li>Depuis l&#39;interface de Firebase, veuillez récupérer l&#39;object de configuration permettant d&#39;intéragir avec Firebase depuis vos applications</li>
+<li>Dans la cloud function,<br><br><ul>
+<li>importez le module <code>firebase-admin</code></li>
+<li>initialisez l&#39;accès à Firestore via la méthode <code>initializeApp</code>.</li>
+<li>sauvegardez la donnée retournée précédemment dans une collection <code>stats</code></li>
+</ul>
+</li>
+<li>Nous allons également avoir une collection <code>accounts</code> dans lequel nous persisterons les comptes que Twitter que nous souhaitons suivre.<br><br><ul>
+<li>Créez cette collection, et ajouter les comptes que vous voulez suivre. Le document aura une propriété <code>handle</code> avec comme valeur le nom du compte Twitter.</li>
+<li>Modifiez la dernière ligne du fichier <code>cron.js</code> en allant récupérer tout d&#39;abord la liste des comptes depuis Firebase avant d&#39;appeler notre Cloud Function.</li>
+</ul>
+</li>
+</ul>
+<h2>Intégration dans l&#39;application Angular</h2>
+<p>Nous allons à présent récupérer ces données depuis notre application Angular.</p>
+<ul>
+<li>Installez les modules <code>@angular/fire</code> et <code>firebase</code></li>
+<li>Dans le module applicatif, veuillez importer les modules Angular nécessaires : <code>AngularFireModule</code> et <code>AngularFirestoreModule</code></li>
+<li>Afin d&#39;initialiser le module <code>AngularFireModule</code>, il est nécessaire de définir la paramètrage défini dans la console <strong>Firebase</strong></li>
+<li>Modifiez le service <code>data.service.js</code> afin de récupérer les données stockées dans Firestore.<br><br><ul>
+<li>Les méthodes <code>getData</code> et <code>getAccountsToSpy</code> doivent retournées des Observables émettant les données stockées dans Firestore.</li>
+<li>Les méthodes <code>addTwitter</code> et <code>removeTwitter</code> permettront d&#39;ajouter et de supprimer des comptes Twitter.</li>
+</ul>
+</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Authentication" duration="0">
+        <aside class="special"><p>Voici la documentation utile pour cette étape</p>
+</aside>
+<p><a href="https://firebase.google.com/docs/auth/" target="_blank">Firebase Authentication</a></p>
+<p><a href="https://github.com/angular/angularfire2/blob/master/docs/auth/getting-started.md" target="_blank">@angular/fire</a></p>
+<h2>Sécurisation des données</h2>
+<p>Nous allons à présent sécuriser l&#39;accés à nos données.</p>
+<ul>
+<li>Dans le fichier <code>firestore.rules</code><ul>
+<li>Dans la collection <code>stats</code>, l&#39;insertion des données ne peut être réalisée que par notre Cloud function. (Impossible d&#39;ajouter des documents depuis l&#39;application Angular par exemple)</li>
+<li>Pour insérer des données dans la collection <code>accounts</code>, il faut être connecté</li>
+<li>Pour récupérer les données, il faut être connecté.</li>
+</ul>
+</li>
+</ul>
+<p>Vous pouvez tester ces règles via le simulateur en ligne disponible depuis la console Firebase.</p>
+<p>Pour aller plus loin, vous pouvez :</p>
+<ul>
+<li>Installer le plugin VSCode pour avoir de la coloration syntaxique dans le fichier <code>firestore.rules</code></li>
+<li>Ajouter des tests unitaires à vos règles de sécurité</li>
+</ul>
+<h2>Intégration dans l&#39;application Angular</h2>
+<p>Nous allons à présent récupérer ces données depuis notre application Angular.</p>
+<ul>
+<li>Dans le module applicatif, veuillez importer le module <code>AngularFireAuthModule</code></li>
+<li>Depuis la console de Firebase, veuillez activer l&#39;authentification via le provider <strong>Google</strong>.</li>
+<li>Dans l&#39;application Angular, veuillez modifier le service <code>AuthService</code> afin d&#39;appeler l&#39;api d&#39;<code>@angular/fire</code> pour gérer l&#39;authentification de vos utilisateurs.<br><br><ul>
+<li>Vous devez modifier les methodes <code>signInWithGoogle</code> er <code>logout</code>.</li>
+<li>Vous devez initialiser les variables <code>authenticated$</code> (observable permettant de savoir si l&#39;utilisateur est connecté ou pas) et <code>user$</code> (observable permettant de récupérer les informations de l&#39;utilisateur connecté)</li>
+</ul>
+</li>
+</ul>
+<p>Pour aller plus loin, vous pouvez :</p>
+<ul>
+<li>Activer le support d&#39;autres providers : Twitter par exemple.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Firebase Hosting" duration="0">
+        <aside class="special"><p>Voici la documentation utile pour cette étape</p>
+</aside>
+<p><a href="https://firebase.google.com/docs/hosting/" target="_blank">Firebase Hosting</a></p>
+<p>Nous allons à présent deployer l&#39;application Angular que nous venons de développer</p>
+<ul>
+<li>Via la CLI de <strong>Firebase</strong>, initialiser le hosting de votre application</li>
+<li>Executer la commande <code>npm run build</code> afin de générer le livrable de votre application</li>
+<li>Modifier le fichier de configuration de <strong>Firebase</strong> afin de deployer le répertoire créé par <strong>Angular-CLI</strong></li>
+<li>Executer la commande <code>firebase serve</code> en local afin de vérifier que votre configuration est correct</li>
+<li>Deployer a present votre application sur Firebase via la commande <code>firebase deploy --only hosting</code></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-49880327-14', 'auto');
+
+    (function() {
+      var gaCodelab = '';
+      if (gaCodelab) {
+        ga('create', gaCodelab, 'auto', {name: 'codelab'});
+      }
+
+      var gaView;
+      var parts = location.search.substring(1).split('&');
+      for (var i = 0; i < parts.length; i++) {
+        var param = parts[i].split('=');
+        if (param[0] === 'viewga') {
+          gaView = param[1];
+          break;
+        }
+      }
+      if (gaView && gaView !== gaCodelab) {
+        ga('create', gaView, 'auto', {name: 'view'});
+      }
+    })();
+  </script>
+
+</body>
+</html>

@@ -21,7 +21,7 @@ function deploy(){
 }
 
 function main() {
-  setup && build && deploy
+  setup && build
 }
 
 main

@@ -6,7 +6,7 @@ Positive
 - [Firestore](https://firebase.google.com/docs/firestore/quickstart)
 - [Angular Fire](https://github.com/angular/angularfire2/blob/master/docs/firestore/collections.md)
 
-## Intégration dans la Cloud Function
+### Intégration dans la Cloud Function
 
 - Dans la cloud function développée précédemment, nous souhaitons à présent persister les données dans `Firestore`
 - Depuis l'interface de Firebase, veuillez récupérer l'object de configuration permettant d'intéragir avec Firebase depuis vos applications
@@ -18,7 +18,7 @@ Positive
   - Créez cette collection, et ajouter les comptes que vous voulez suivre. Le document aura une propriété `handle` avec comme valeur le nom du compte Twitter.
   - Modifiez la dernière ligne du fichier `cron.js` en allant récupérer tout d'abord la liste des comptes depuis Firebase avant d'appeler notre Cloud Function.
 
-## Intégration dans l'application Angular
+### Intégration dans l'application Angular
 
 Nous allons à présent récupérer ces données depuis notre application Angular.
 
@@ -28,3 +28,4 @@ Nous allons à présent récupérer ces données depuis notre application Angula
 - Modifiez le service `data.service.js` afin de récupérer les données stockées dans Firestore.
   - Les méthodes `getData` et `getAccountsToSpy` doivent retournées des Observables émettant les données stockées dans Firestore.
   - Les méthodes `addTwitter` et `removeTwitter` permettront d'ajouter et de supprimer des comptes Twitter.
+

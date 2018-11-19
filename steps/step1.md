@@ -34,7 +34,7 @@ Nous allons débuter ce codelab par initier le projet firebase. Pour rappel, not
 
 Votre environnement est enfin prêt. Nous allons pouvoir créer notre première Cloud functions.
 
-## Création d'une Cloud Function
+### Création d'une Cloud Function
 
 - Ajoutez le support de Node 8 pour votre Cloud function.
 

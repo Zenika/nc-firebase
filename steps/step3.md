@@ -6,7 +6,7 @@ Positive
 - [Firebase Authentication](https://firebase.google.com/docs/auth/)
 - [@angular/fire](https://github.com/angular/angularfire2/blob/master/docs/auth/getting-started.md)
 
-## Sécurisation des données
+### Sécurisation des données
 
 Nous allons à présent sécuriser l'accés à nos données.
 
@@ -22,7 +22,7 @@ Pour aller plus loin, vous pouvez :
 - Installer le plugin VSCode pour avoir de la coloration syntaxique dans le fichier `firestore.rules`
 - Ajouter des tests unitaires à vos règles de sécurité
 
-## Intégration dans l'application Angular
+### Intégration dans l'application Angular
 
 Nous allons à présent récupérer ces données depuis notre application Angular.
 
@@ -35,3 +35,4 @@ Nous allons à présent récupérer ces données depuis notre application Angula
 Pour aller plus loin, vous pouvez :
 
 - Activer le support d'autres providers : Twitter par exemple.
+

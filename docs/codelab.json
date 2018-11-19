@@ -1,0 +1,18 @@
+{
+  "environment": "web",
+  "source": "./.tmp/index.md",
+  "format": "html",
+  "prefix": "../../",
+  "mainga": "UA-49880327-14",
+  "updated": "2018-11-19T17:07:04+01:00",
+  "id": "firebase-codelab",
+  "duration": 0,
+  "title": "Firebase",
+  "author": "Zenika",
+  "summary": "Mise en place d’une infrastructure basée sur Firebase",
+  "theme": "",
+  "status": null,
+  "category": null,
+  "tags": [],
+  "url": "firebase-codelab"
+}
