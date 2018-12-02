@@ -3,8 +3,9 @@
 Positive
 : Voici la documentation utile pour cette étape
 
+- [Firestore Security Rules](https://firebase.google.com/docs/firestore/security/get-started)
 - [Firebase Authentication](https://firebase.google.com/docs/auth/)
-- [@angular/fire](https://github.com/angular/angularfire2/blob/master/docs/auth/getting-started.md)
+- [@angular/fire Auth](https://github.com/angular/angularfire2/blob/master/docs/auth/getting-started.md)
 
 ### Sécurisation des données
 
@@ -29,10 +30,10 @@ Nous allons à présent récupérer ces données depuis notre application Angula
 - Dans le module applicatif, veuillez importer le module `AngularFireAuthModule`
 - Depuis la console de Firebase, veuillez activer l'authentification via le provider **Google**.
 - Dans l'application Angular, veuillez modifier le service `AuthService` afin d'appeler l'api d'`@angular/fire` pour gérer l'authentification de vos utilisateurs.
-  - Vous devez modifier les methodes `signInWithGoogle` er `logout`.
+  - Vous devez modifier les methodes `signInWithGoogle` et `logout`.
   - Vous devez initialiser les variables `authenticated$` (observable permettant de savoir si l'utilisateur est connecté ou pas) et `user$` (observable permettant de récupérer les informations de l'utilisateur connecté)
 
 Pour aller plus loin, vous pouvez :
 
-- Activer le support d'autres providers : Twitter par exemple.
+- Activer le support d'autres providers : Twitter par exemple (Attention: nécessite une une paire API Key / API Secret).
 
