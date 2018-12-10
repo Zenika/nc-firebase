@@ -1,0 +1,14 @@
+service cloud.firestore {
+	function isSignedIn(){
+  	return request.auth != null;
+  }
+  match /databases/{database}/documents {
+    match /stats/{document=**} {
+    	allow read: if isSignedIn();
+      allow write: if false;
+    }
+    match /accounts/{document=**} {
+      allow read, write: if isSignedIn();
+    }
+  }
+}
