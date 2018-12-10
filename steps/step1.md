@@ -7,6 +7,7 @@ id: firebase-codelab
 Prérequis:
 
 - NPM / Node
+- Un compte Google
 
 ## Cloud Function
 
