@@ -3,8 +3,9 @@
 Positive
 : Voici la documentation utile pour cette étape
 
+- [Firestore Security Rules](https://firebase.google.com/docs/firestore/security/get-started)
 - [Firebase Authentication](https://firebase.google.com/docs/auth/)
-- [@angular/fire](https://github.com/angular/angularfire2/blob/master/docs/auth/getting-started.md)
+- [@angular/fire Auth](https://github.com/angular/angularfire2/blob/master/docs/auth/getting-started.md)
 
 ### Sécurisation des données
 
@@ -21,4 +22,3 @@ Pour aller plus loin, vous pouvez :
 
 - Installer le plugin VSCode pour avoir de la coloration syntaxique dans le fichier `firestore.rules`
 - Ajouter des tests unitaires à vos règles de sécurité
-
