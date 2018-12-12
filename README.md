@@ -1,7 +1,7 @@
-- [Step 1 - Cloud Functions](https://github.com/Zenika/nc-firebase/steps/step1.md)
-- [Step 2 - @angular/fire](https://github.com/Zenika/nc-firebase/steps/step2.md)
-- [Step 3 - Authentication](https://github.com/Zenika/nc-firebase/steps/step3.md)
-- [Step 4 - Hosting](https://github.com/Zenika/nc-firebase/steps/step4.md)
+- [Step 1 - Cloud Functions](steps/step1.md)
+- [Step 2 - @angular/fire](steps/step2.md)
+- [Step 3 - Authentication](steps/step3.md)
+- [Step 4 - Hosting](steps/step4.md)
 
 
 https://docs.google.com/presentation/d/19-QA-2IqBpYUNRnpBd7PWySpU6gGIJi3XZmoSOduOGg/edit
