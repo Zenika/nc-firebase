@@ -34,17 +34,21 @@ Nous allons débuter ce codelab par initier le projet firebase. Pour rappel, not
   - Spécifiez le projet sur lequel doit être déployé votre code via la commande `firebase use --add`
   - Déployez votre projet sur Firebase via la commande `firebase deploy`
 
+Attention: Lorsque vous allez exécuter la commande `firebase use --add`, vous devez au préalable activer **Firestore** dans le projet crée via l'interface graphique Firebase.
+
 Votre environnement est enfin prêt. Nous allons pouvoir créer notre première Cloud Functions.
 
 ### Création d'une Cloud Function
+
 Afin de passer à travers la limitation de Firebase concernant les appels vers l'exterieur, pour ce codelab, nous allons écrire un script externe que nous pourrions par exemple appeler de manière régulière via un CRON.
 
 - Créer un fichier `functions/cron.js` contenant la structure de ce fichier : https://gist.github.com/Gillespie59/139646836eb7955c2d3dbf2627b0c9a5
 - Pour récupérer les données, nous allons faire du scraping de la page Web via le module NPM `jsdom`
+
   - Installez la dépendance `jsdom` et `node-fetch`
   - Voici les sélécteurs CSS pour les différentes informations utiles `ProfileNav-item--tweets .ProfileNav-value`, `ProfileNav-item--followers .ProfileNav-value` `.ProfileNav-item--favorites .ProfileNav-value` et `ProfileNav-item--following .ProfileNav-value`
   - Pour éxecuter le script, vous pouvez executer la commande `node cron.js`
-  
+
 - Ajoutez le support de Node 8 pour votre Cloud Function afin de bénéficier de la fonctionnalité async/await.
 - Créez une Cloud Function `contributions` permettant de récupérer le `body` de la requête. La Cloud Function doit retourner un JSON contenant :
   - une propriété `timestamp` correspondant à la date du jour.
