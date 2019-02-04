@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { Twitter } from "../../models/twitter.model";
+import { Twitter } from "src/app/models/twitter.model";
 
 @Component({
   selector: "z-stats",
