@@ -6,6 +6,7 @@
   "dependencies": {},
   "devDependencies": {
     "@firebase/testing": "0.3.2",
+    "@firebase/util": "^0.2.6",
     "jest": "23.6.0"
   },
   "scripts": {
