@@ -53,9 +53,9 @@ Afin de passer à travers la limitation de Firebase concernant les appels vers l
 - Créez une Cloud Function `contributions` permettant de récupérer le `body` de la requête. La Cloud Function doit retourner un JSON contenant :
   - une propriété `timestamp` correspondant à la date du jour.
   - une propriété `twitters` avec le contenu du body. Les données numériques doivent être retournées dans le bon format.
-- Lancez en local votre Cloud Function via la commande `firebase serve --only functions
+- Lancez en local votre Cloud Function via la commande `firebase serve --only functions`
 - Modifiez la constante `functionUrl` afin de pointer vers l'URL de votre Cloud Function en local (il faudra la changer dans le futur afin de pointer vers celle en production)
-- Déployez en production votre Cloud Function via la commande `firebase deploy --only functions
+- Déployez en production votre Cloud Function via la commande `firebase deploy --only functions`
 - Regardez les statistiques d'utilisation de votre Cloud Function depuis la console Firebase.
 
 Dans l'exercice suivant, au lieu de retourner ce JSON, nous persisterons ces donneées dans Firestore.
