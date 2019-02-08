@@ -42,7 +42,7 @@ Votre environnement est enfin prêt. Nous allons pouvoir créer notre première 
 
 Afin de passer à travers la limitation de Firebase concernant les appels vers l'exterieur, pour ce codelab, nous allons écrire un script externe que nous pourrions par exemple appeler de manière régulière via un CRON.
 
-- Créer un fichier `functions/cron.js` contenant la structure de ce fichier : https://gist.github.com/Gillespie59/139646836eb7955c2d3dbf2627b0c9a5
+- Créer un fichier `functions/cron.js` contenant la structure de ce fichier : https://gist.github.com/EmmanuelDemey/139646836eb7955c2d3dbf2627b0c9a5
 - Pour récupérer les données, nous allons faire du scraping de la page Web via le module NPM `jsdom`
 
   - Installez la dépendance `jsdom` et `node-fetch`
